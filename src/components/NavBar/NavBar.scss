@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: lightblue;
+  color: white;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  nav {
+    width: 40%;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+  }
+}

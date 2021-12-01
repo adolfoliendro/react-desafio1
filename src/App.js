@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { NavBar } from './components/NavBar/NavBar';
+import { Footer } from './components/Footer/Footer';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import { ItemCount } from './components/ItemCount/ItemCount';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Holaaa!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      
+      <ItemListContainer greeting='Contenedor de la lista de articulos' />
+      
+      <ItemCount stock={5} />
+
+      <Footer />
     </div>
   );
 }
