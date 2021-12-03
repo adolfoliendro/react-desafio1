@@ -6,6 +6,7 @@ export const stock = [
     stock: 5,
     imagen: "https://via.placeholder.com/200",
     descripcion: "Descripcion del producto 1",
+    category: "category1",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const stock = [
     stock: 1,
     imagen: "https://via.placeholder.com/200",
     descripcion: "Descripcion del producto 2",
+    category: "category2",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const stock = [
     stock: 0,
     imagen: "https://via.placeholder.com/200",
     descripcion: "Descripcion del producto 3",
+    category: "category3",
   },
   {
     id: 4,
@@ -30,5 +33,6 @@ export const stock = [
     stock: 10,
     imagen: "https://via.placeholder.com/200",
     descripcion: "Descripcion del producto 4",
+    category: "category3",
   },
 ];

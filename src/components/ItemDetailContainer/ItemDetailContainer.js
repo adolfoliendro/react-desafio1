@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import { pedirItem } from "../../helpers/pedirDatos";
 import { ItemList } from "../ItemList/ItemList";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router";
 
-export const ItemDetailContainer = ({itemId = 1}) => {
+export const ItemDetailContainer = () => {
   const [item, setItem] = useState(1);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const { itemId } = useParams();
 
   useEffect(() => {
-    pedirItem(itemId)
+    setLoading(true);
+    pedirItem(parseInt(itemId))
       .then((resp) => {
-        setItem(resp);
+        resp ? setItem(resp) : console.log("No definido!");
       })
       .catch((err) => {
         console.log(err);
