@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { pedirItem } from "../../helpers/pedirDatos";
-// import { ItemDetail } from "../ItemDetail/ItemDetail";
-// import { Loader } from "../Loader/Loader";
+import { ItemList } from "../ItemList/ItemList";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
 
-export const ItemDetailContainer = () => {
-  const [item, setItem] = useState(null);
+export const ItemDetailContainer = ({itemId = 1}) => {
+  const [item, setItem] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    pedirItem(1)
+    pedirItem(itemId)
       .then((resp) => {
         setItem(resp);
       })
-      .finally(console.log(item));
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
-  // return <div>{item && <ItemDetail item={item} />}</div>;
-  // return <>{loading ? <Loader /> : <ItemDetail item={item} />}</>;
-  return <p>Listo!</p>;
+  return (
+    <div>{loading ? <h2>Cargando...</h2> : <ItemDetail item={item} />}</div>
+  );
 };

@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      {/* <ItemDetailContainer /> */}
-      <ItemListContainer />
+      <ItemDetailContainer itemId={2} />
+      {/* <ItemListContainer /> */}
       <Footer />
     </div>
   );
