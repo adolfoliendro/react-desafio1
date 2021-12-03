@@ -1,16 +1,28 @@
+import React, { useEffect, useState } from "react";
+import { stock } from "../../data/stock";
+import { pedirDatos } from "../../helpers/pedirDatos";
+import { ItemList } from "../ItemList/ItemList";
 import "./ItemListContainer.scss";
 
-export const ItemListContainer = ( { greeting } ) => {
+export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // console.log(props);
-
-  // Desestructuración de objetos
-  // const {saludo, texto} = props
+  useEffect(() => {
+    setLoading(true);
+    pedirDatos()
+      .then((resp) => {
+        setItems(resp);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <div>
-      <h2>{greeting}</h2>
-      <hr />
-    </div>
+    <div>{loading ? <h2>Cargando...</h2> : <ItemList items={items} />}</div>
   );
 };
