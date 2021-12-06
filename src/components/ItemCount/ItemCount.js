@@ -1,12 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useCounter } from "../../hooks/useCounter";
 
-export const ItemCount = ({ stock = 10, initial = 0 }) => {
-
-
-
-  const { counter, increment, decrement } = useCounter(initial, stock, 0);
+export const ItemCount = ({ counter, increment, decrement, onAdd }) => {
 
   return (
     <div className="m-3">
@@ -15,7 +10,9 @@ export const ItemCount = ({ stock = 10, initial = 0 }) => {
       <Button onClick={increment}>+</Button>
 
       <div>
-        <Button className="m-3">Agregar</Button>
+        <Button onClick={onAdd} className="m-3">
+          Agregar
+        </Button>
       </div>
     </div>
   );
