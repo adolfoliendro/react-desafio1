@@ -32,7 +32,7 @@ export const ItemDetailContainer = () => {
     getDoc(docRef)
       .then((documento) => {
         setItem({
-          id: doc.id,
+          id: documento.id,
           ...documento.data(),
         });
       })
